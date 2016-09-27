@@ -6,11 +6,12 @@ class HashMap {
 private:
     LinkedNode **table;
     int entries, buckets;
+    int hashSum(string);
 public:
     HashMap(int size);
-    bool set(int,int);
-    int *get(int);
-    int *del(int);
+    bool set(string,int);
+    int *get(string);
+    int *del(string);
     float load();
     void print();
 };

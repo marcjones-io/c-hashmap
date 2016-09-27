@@ -1,5 +1,5 @@
 #include "HashMap.h"
-#include <iostream>
+
 using namespace std;
 
 HashMap::HashMap(int size){
@@ -10,8 +10,8 @@ HashMap::HashMap(int size){
     }
 };
 
-bool HashMap::set(int key, int value){
-    int location = abs(((key) % buckets)); //hash function
+bool HashMap::set(string key, int value){
+    int location = abs(((hashSum(key)) % buckets)); //hash function
     if (table[location]->next == nullptr) { //if spot is empty place entry
         table[location]->next = new LinkedNode(key, value, table[location]);
         entries++;
@@ -38,8 +38,8 @@ bool HashMap::set(int key, int value){
     return true; //by using seperate chaining, it is impossible for the set function to fail
 };
 
-int *HashMap::get(int key) {
-    int location = abs((key % buckets)); //hash function
+int *HashMap::get(string key) {
+    int location = abs(((hashSum(key)) % buckets)); //hash function
     if (table[location]->next == nullptr) //if spot is empty
         return nullptr; //return nil to indicate that the entry was not found
     else { //otherwise initialize an iterator to look in chain for desired entry
@@ -57,8 +57,8 @@ int *HashMap::get(int key) {
 }
 
 
-int *HashMap::del(int key) {
-    int location = abs((key % buckets)); //hash function
+int *HashMap::del(string key) {
+    int location = abs(((hashSum(key)) % buckets)); //hash function
     if (table[location]->next == nullptr) //if spot is empty
         return nullptr; //return nil to indicate that the entry was not found and delete was unsuccessful
     else { //otherwise initialize an iterator to look in chain for desired entry
@@ -102,6 +102,16 @@ int *HashMap::del(int key) {
 float HashMap::load(){
     return entries /(float)buckets;
 };
+
+int HashMap::hashSum(string str){ //sums the character values of a string to produce a value to be hashed
+    int hashSum = 0;
+    if (str.size() == 0)
+        return -1; //causes segfault to prevent user from entering empty keys
+    for(int i=0; i < str.size(); i++){
+        hashSum += str[i];
+    }
+    return hashSum;
+}
 
 void HashMap::print(){
     cout << "entries = " << entries << " buckets = " << buckets << " load factor = " << load() << endl;

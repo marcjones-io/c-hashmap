@@ -4,61 +4,36 @@ using namespace std;
 
 int main() {
     HashMap * map = new HashMap(6);
-    map->set(7,7);
-    map->set(18,18);
-    map->set(41,41);
-    map->set(34,34);
-    map->set(12,12);
-    map->set(6,6);
-    map->set(6,8);
-    map->set(12,2);
-    map->set(-1,-1);
+    map->set("seven",7);
+    map->set("eighteen",18);
+    map->set("fourtyone",41);
+    map->set("thirtyfour",34);
+    map->set("twelve",12);
+    map->set("six",6);
+    map->set("six",8);
+    map->set("twelve",2);
+    map->set("negative one",-1);
 
-    if (map->get(12) != nullptr) cout << "found " << *map->get(12) << endl;
+    if (map->get("twelve") != nullptr) cout << "found " << *map->get("twelve") << endl;
     else cout << "12 not found" << endl;
-    if (map->get(14) != nullptr) cout << "found " << *map->get(14) << endl;
+    if (map->get("fourteen") != nullptr) cout << "found " << *map->get("fourteen") << endl;
     else cout << "14 not found" << endl;
     map->print();
     ;
 
-    if (map->del(12) != nullptr) cout << "12 deleted" << endl;
+    if (map->del("twelve") != nullptr) cout << "12 deleted" << endl;
     else cout << "12 delete unsuccessful" << endl;
     map->print();
 
 
-    if (map->del(6) != nullptr) cout << "6 deleted" << endl;
+    if (map->del("six") != nullptr) cout << "6 deleted" << endl;
     else cout << "6 delete unsuccessful" << endl;
     map->print();
 
-    if (map->del(-1) != nullptr) cout << "-1 deleted" << endl;
+    if (map->del("negative one") != nullptr) cout << "-1 deleted" << endl;
     else cout << "-1 delete unsuccessful" << endl;
     map->print();
 
-
-//
-//    if (map->get(18) != nullptr) cout << "found " << *map->get(18) << endl;
-//    else cout << "18 not found" << endl;
-//
-//    if (map->del(12) != nullptr) cout << "12 deleted" << endl;
-//    else cout << "12 delete unsuccessful" << endl;
-//
-//    map->print();
-//
-//    if (map->get(12) != nullptr) cout << "found " << *map->get(12) << endl;
-//    else cout << "12 not found" << endl;
-
-//    if (map->del(-1) != nullptr) cout << "-1 deleted" << endl;
-//    else cout << "-1 delete unsuccessful" << endl;
-//    map->del(-1);
-//
-//    if (map->del(14) != nullptr) cout << "14 deleted" << endl;
-//    else cout << "14 delete unsuccessful" << endl;
-////    map->del(-1);
-//
-//    map->print();
-//
-//    if (map->get(14) != nullptr) cout << "found " << *map->get(14) << endl;
-//    else cout << "14 not found" << endl;
 
     return 0;
 }

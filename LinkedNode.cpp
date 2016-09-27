@@ -5,7 +5,7 @@ LinkedNode::LinkedNode() {
     prev = nullptr;
 }
 
-LinkedNode::LinkedNode(int k, int v, LinkedNode *p) {
+LinkedNode::LinkedNode(string k, int v, LinkedNode *p) {
     key = k;
     value = v;
     next = nullptr;
