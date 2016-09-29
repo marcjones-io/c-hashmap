@@ -1,3 +1,7 @@
+/**
+ *  Marc Jones 2016
+ */
+
 #include <iostream>
 #include <fstream>
 #include "HashMap.h"
