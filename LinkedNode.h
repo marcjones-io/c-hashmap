@@ -4,10 +4,10 @@
 using namespace std;
 
 class LinkedNode {
-        private:
-        public:
+private:
+public:
         string key;
-        int value;//, key;
+        int value;
         LinkedNode *next;
         LinkedNode *prev;
         LinkedNode(); //null object

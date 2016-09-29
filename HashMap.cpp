@@ -117,16 +117,14 @@ void HashMap::print(){
     cout << "entries = " << entries << " buckets = " << buckets << " load factor = " << load() << endl;
     for(int i=0; i < buckets; i++){
         if (table[i]->next == nullptr)
-            cout << "[" << i << "] = nil" << endl;
-        else{
+            cout << "[" << i+1 << "] = nil" << endl;
+        else {
             LinkedNode *itr = table[i]->next;
-            cout << "[" << i << "] = <" << itr->key << "," << itr->value << ">" ;
-
+            cout << "[" << i+1 << "] = (" << itr->key << ", " << itr->value << ")" ;
             while (itr->next != nullptr) {
                 itr = itr->next;
-                cout << " - <" << itr->key << "," << itr->value << ">" ;
-            }
-            cout << endl;
+                cout << " - (" << itr->key << ", " << itr->value << ")" ;
+            } cout << endl;
         }
     }
 };
